@@ -69,6 +69,7 @@ class Event(models.Model):
     description = models.CharField(_('description'), max_length=100)
     event_type = models.ForeignKey(EventType, verbose_name=_('event type'))
     notes = generic.GenericRelation(Note, verbose_name=_('notes'))
+    creator = models.ForeignKey(User, verbose_name=_('created by'), null=True, blank=True)
 
     #===========================================================================
     class Meta:
